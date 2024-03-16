@@ -1,0 +1,57 @@
+sudo apt install mousepad ; sudo apt install zram-tools
+echo -e "ALGO=zstd\nPERCENT=60" | sudo tee -a /etc/default/zramswap
+sudo service zramswap reload
+
+sudo chmod +x /etc/init.d/zramswap
+sudo apt install insserv
+sudo insserv zramswap
+
+sudo aptitude install systemd-zram-generator -y ; sudo aptitude install libblockdev-kbd2 -y ; sudo aptitude install udisks2-zram -y ; sudo aptitude install zram-tools -y ; sudo aptitude install util-linux -y ; sudo aptitude install util-linux zramctl -y ; sudo aptitude install util-linux -y ; sudo aptitude install util-linux zramctl -y ; sudo chmod +x /etc/init.d/zramswap -y; sudo apt install insserv -y ; sudo insserv zramswap -y ; sudo systemctl start /dev/zram0 -y ; sudo systemctl daemon-reload -y ; sudo systemctl enable zram -y ; sudo insserv zramswap -y ; sudo systemctl start /dev/zram0 -y ; sudo systemctl enable zram -y ; sudo swapoff /swapfile -y ; sudo systemctl enable zram -y
+
+
+sudo mousepad /etc/modules-load.d/zram.conf
+  Add the below text, save and close:
+      zram
+
+sudo mousepad /etc/modprobe.d/zram.conf
+  Add the below text, save and close:
+      options zram num_devices=1
+
+sudo mousepad /etc/udev/rules.d/99-zram.rules
+  Add the below text, save and close:    
+      KERNEL=="zram0", ATTR{disksize}="512M",TAG+="systemd"
+    
+sudo mousepad /etc/fstab
+  Add the below text, save and close:
+    #swap
+
+sudo mousepad /etc/udev/rules.d/99-zram.rules
+  Add the below text, save and close:
+    KERNEL=="zram0", ATTR{disksize}="5122M",TAG+="systemd"
+
+
+sudo mousepad /etc/systemd/system/zram.service
+  Add the below text, save and close:
+  	[Unit]
+  	Description=Swap with zram
+  	After=multi-user.target
+  
+  	[Service]
+  	Type=oneshot
+  	RemainAfterExit=true
+  	ExecStartPre=/sbin/mkswap /dev/zram0
+  	ExecStart=/sbin/swapon /dev/zram0
+  	ExecStop=/sbin/swapoff /dev/zram0
+  
+  	[Install]
+  	WantedBy=multi-user.target
+
+
+sudo mousepad /usr/bin/init-zram-swapping
+  Specify the size / percentage of RAM you want to use, save and close:
+
+sudo chmod +x /etc/init.d/zramswap -y; sudo apt install insserv -y ; sudo insserv zramswap -y ; sudo systemctl start /dev/zram0 -y ; sudo systemctl daemon-reload -y ; sudo systemctl enable zram -y ; sudo insserv zramswap -y ; sudo systemctl start /dev/zram0 -y ; sudo systemctl enable zram -y ; sudo swapoff /swapfile -y ; sudo systemctl enable zram -y ; 
+
+
+Verify:
+zramctl ; swapon t ; util-linux zramctl ; cat /proc/swaps
