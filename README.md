@@ -3,10 +3,14 @@ A series of scripts to customize Debian XFCE Operating System, with a focus on c
 
 <b>To Do List</b>:
 - [x] Create Base Application Script
-- [ ] Create ZRam Script
-- [ ] Create Liquorix Kernel Script
+- [x] Create ZRam Script
+- [x] Create Liquorix Kernel Script
+- [x] Create Beta Distrobox Scripts
+- [x] Create Clean-Up Script 
 - [ ] Create Instructions
-- [ ] Create DistroBox Script
+- [ ] Test, Update & Refine DistroBox Scripts
+- [ ] Test, Update & Refine Clean-Up Scripts
 - [ ] Add Custom Icons
 - [ ] Add Custom Wallpapers
 - [ ] Create Custom System Config Files
+- [ ] Come up with a better name for the project
