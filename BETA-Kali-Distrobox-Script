@@ -1,0 +1,22 @@
+sudo apt update ; sudo aptitude full-upgrade -y ; sudo aptitude install software-properties-common -y; sudo aptitude install firmware-linux firmware-linux-nonfree libdrm-amdgpu1 xserver-xorg-video-amdgpu -y; sudo aptitude install mesa-opencl-icd -y; sudo aptitude install mesa-vulkan-drivers libvulkan1 vulkan-tools vulkan-utils vulkan-validationlayers -y ; 
+
+echo "deb http://deb.debian.org/debian bookworm-backports main contrib non-free-firmware" | sudo tee -a /etc/apt/sources.list
+
+sudo apt update -y ; sudo apt full-upgrade -y ; sudo apt install aptitude -y ; sudo aptitude install wget -y ; sudo apt update && sudo apt install -y wget gnupg lsb-release apt-transport-https ca-certificates
+
+distro=$(if echo " una bookworm vanessa focal jammy bullseye vera uma " | grep -q " $(lsb_release -sc) "; then lsb_release -sc; else echo focal; fi)
+
+wget -O- https://deb.librewolf.net/keyring.gpg | sudo gpg --dearmor -o /usr/share/keyrings/librewolf.gpg
+
+sudo tee /etc/apt/sources.list.d/librewolf.sources << EOF > /dev/null
+Types: deb
+URIs: https://deb.librewolf.net
+Suites: $distro
+Components: main
+Architectures: amd64
+Signed-By: /usr/share/keyrings/librewolf.gpg
+EOF
+
+sudo apt update -y ; sudo apt full-upgrade -y ; sudo aptitude update -y ; sudo aptitude full-upgrade -y ; sudo aptitude install librewolf -y ;
+
+sudo apt install aptitude -y ; sudo aptitude install dnschef ; sudo aptitude install firejail -y ; sudo aptitude install npm -y ; sudo npm install @zachey/noisyjs -g ; sudo aptitude install xpra -y ; sudo aptitude install screen -y ; libnet-ifconfig-wrapper-perl ; screen noisyjs ; 
