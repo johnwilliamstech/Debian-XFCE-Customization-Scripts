@@ -1,7 +1,7 @@
 sudo apt install mousepad ; sudo apt install zram-tools
 echo -e "ALGO=zstd\nPERCENT=60" | sudo tee -a /etc/default/zramswap
 sudo service zramswap reload
-
+ 
 sudo chmod +x /etc/init.d/zramswap
 sudo apt install insserv
 sudo insserv zramswap
