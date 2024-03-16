@@ -1,4 +1,4 @@
-# Debian-XFCE-Customization-Script
+# Debian XFCE - Customization Script
 A series of scripts to customize Debian XFCE Operating System, with a focus on containerization, privacy, & security.
 
 By using anything in this project, you agree that the project is not liable to any damage to your data or systems. 
