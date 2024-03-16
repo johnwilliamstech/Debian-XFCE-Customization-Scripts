@@ -1,0 +1,7 @@
+sudo aptitude update ; sudo aptitude full-upgrade -y ; sudo aptitude install curl lsb-release apt-transport-https -y ; sudo aptitude install curl ca-certificates apt-transport-https software-properties-common lsb-release -y ; curl -s 'https://liquorix.net/install-liquorix.sh' | sudo bash ; sleep 5s && sudo reboot
+
+sudo add-apt-repository ppa:damentz/liquorix ; sleep 5s && sudo aptitude install linux-image-liquorix-amd64 linux-headers-liquorix-amd64 ; sleep 5s && sudo reboot ; 
+
+sudo mousepad /etc/default/grub 
+set 'GRUB_DEFAULT=0'
+sudo update-grub ; uname -r ; hostnamectl
