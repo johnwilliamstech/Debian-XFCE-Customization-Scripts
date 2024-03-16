@@ -1,0 +1,1 @@
+sudo aptitude purge geary -y ;  sudo aptitude purge chrome -y ; sudo aptitude purge google -y ; sudo aptitude purge geoclue -y ; sudo apt clean  -y; sudo apt autoclean  -y; sudo apt autoremove -y ' 
