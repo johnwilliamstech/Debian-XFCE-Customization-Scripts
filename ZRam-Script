@@ -8,7 +8,6 @@ sudo insserv zramswap
 
 sudo aptitude install systemd-zram-generator -y ; sudo aptitude install libblockdev-kbd2 -y ; sudo aptitude install udisks2-zram -y ; sudo aptitude install zram-tools -y ; sudo aptitude install util-linux -y ; sudo aptitude install util-linux zramctl -y ; sudo aptitude install util-linux -y ; sudo aptitude install util-linux zramctl -y ; sudo chmod +x /etc/init.d/zramswap -y; sudo apt install insserv -y ; sudo insserv zramswap -y ; sudo systemctl start /dev/zram0 -y ; sudo systemctl daemon-reload -y ; sudo systemctl enable zram -y ; sudo insserv zramswap -y ; sudo systemctl start /dev/zram0 -y ; sudo systemctl enable zram -y ; sudo swapoff /swapfile -y ; sudo systemctl enable zram -y
 
-
 sudo mousepad /etc/modules-load.d/zram.conf
   Add the below text, save and close:
       zram
@@ -29,7 +28,6 @@ sudo mousepad /etc/udev/rules.d/99-zram.rules
   Add the below text, save and close:
     KERNEL=="zram0", ATTR{disksize}="5122M",TAG+="systemd"
 
-
 sudo mousepad /etc/systemd/system/zram.service
   Add the below text, save and close:
   	[Unit]
@@ -45,7 +43,6 @@ sudo mousepad /etc/systemd/system/zram.service
   
   	[Install]
   	WantedBy=multi-user.target
-
 
 sudo mousepad /usr/bin/init-zram-swapping
   Specify the size / percentage of RAM you want to use, save and close:
